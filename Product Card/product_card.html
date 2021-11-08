@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Product Card</title>
+        <link rel="stylesheet" href="prod_style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/0563688e73.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="product-card">
+            <div class="logo-cart">
+                <img src="logo.jpg" alt="prod-logo">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+            <div class="main-images">
+                <img id="blue" src="blue.png" alt="blue-shoe" class="blue active">
+                <img id="pink" src="pink.png" alt="blue-shoe" class="pink">
+                <img id="yellow" src="yellow.png" alt="blue-shoe" class="yellow">
+            </div>
+            <div class="shoe-details">
+                <div class="shoe_name">ADDIDAS GAZE ZX</div>
+                <P>
+                    The next generation of the web’s favorite icon library
+                </P>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="color-price">
+                <div class="color-option">
+                    <span class="color">Colour:</span>
+                    <div class="circles">
+                        <span class="circle blue active" id="blue"></span>
+                        <span class="circle pink" id="pink"></span>
+                        <span class="circle yellow" id="yellow"></span>
+                    </div>
+                </div>
+                <div class="price">
+                    <span class="price_num">Rs.1599</span>
+                    <span class="price_letter">Thousand Rupees Only</span>
+                </div>
+            </div>
+            <div class="button">
+                <div class="button-layer">
+                </div>
+                <button>Add To Cart</button>
+            </div>
+        </div>
+
+        <script>
+            let circle = document.querySelector(".color-option");
+
+            circle.addEventListener("click", e => {
+                // console.log(e);
+                let target = e.target;
+                // console.log(target);
+
+                if(target.classList.contains("circle"))
+                {
+                    circle.querySelector(".active").classList.remove("active");
+                    target.classList.add("active");
+                    document.querySelector(".main-images .active").classList.remove("active");
+                    document.querySelector(`.main-images .${target.id}`).classList.add("active")
+                }
+            });
+        </script>
+
+    </body>
+</html>
